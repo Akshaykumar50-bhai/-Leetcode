@@ -1,0 +1,30 @@
+// generate parentheses
+// User function Template for C++
+
+// N is the number of pairs of parentheses
+// Return list of all combinations of balanced parantheses
+class Solution {
+  public:
+   
+  void generate_parentheses(int n,string s, int opening,int closing,vector<string>& ans){
+      if(s.length() == (n/2)*2){
+          ans.push_back(s);
+          return;
+      }
+      if(opening<n/2){
+       
+      generate_parentheses(n,s+"(",opening+1,closing,ans);
+      }
+       if(closing<opening)
+      generate_parentheses(n,s+")",opening,closing+1,ans);
+     
+  }
+    vector<string> generateParentheses(int n) {
+        // code here
+        vector<string> ans;
+        string s = "";
+        generate_parentheses(n,s,0,0,ans);
+        return ans;
+        
+    }
+};
