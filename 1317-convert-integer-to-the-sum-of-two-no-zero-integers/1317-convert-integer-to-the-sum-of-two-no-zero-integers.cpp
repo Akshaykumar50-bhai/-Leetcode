@@ -3,7 +3,7 @@ public:
     vector<int> getNoZeroIntegers(int n) {
          vector<int> arr;
         
-         for(int i=1;i<=999;i++){
+         for(int i=1;i<=500;i++){
            string  s1 = to_string(n-i);
             
             string  s2 = to_string(i);
