@@ -6,16 +6,12 @@ public:
         int i=0,j=0;
         while(j <nums.size()){
             if(j < k){
-                sum += nums[j];
-                    
+                sum += nums[j];    
                 if(j == (k-1)) {
                     avg = sum/k;
-                    i++;
-                    
-                } 
-                      
-                j++;
-                 
+                    i++;   
+                }      
+                j++; 
             }
             else{
             sum -= nums[i-1];
