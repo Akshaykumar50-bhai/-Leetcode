@@ -2,11 +2,8 @@ class Solution {
 public:
     vector<int> getAverages(vector<int>& nums, int k) {
          if(k == 0) return nums;
-         else if(nums.size()<= k+k ) {
-            fill(nums.begin(),nums.end(),-1);
-            return nums;
-            }
         vector<int>res(nums.size(),-1);
+        if(nums.size()< (k+k+1)) return res;
         long long sum = 0,right = k+k;
         int n = k;
         for(int j=0;j<(k+k+1);j++){
