@@ -2,13 +2,11 @@ class Solution {
 public:
     vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
         unordered_map<int,int>mp;
-        vector<int> greater(nums2.size());
-         int m = -1;
+        
+          
         for(int i=nums2.size()-1;i>=0;i--){
             mp[nums2[i]] = i;
-             m = max(m , nums2[i]);
-            greater[i] = m;
-            
+                      
         }
         for(int i=0;i<nums1.size();i++){
             int idx = mp[nums1[i]];
