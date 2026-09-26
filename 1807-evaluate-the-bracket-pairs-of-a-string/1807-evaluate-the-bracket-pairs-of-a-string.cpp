@@ -4,7 +4,7 @@ public:
       unordered_map<string,string>mp;
       for(int i=0;i<knowledge.size();i++){
         mp[knowledge[i][0]] = knowledge[i][1];
-        cout << mp[knowledge[i][0]] << " "; 
+        // cout << mp[knowledge[i][0]] << " "; 
       }  
       string st = "";
       int flag = 0;
