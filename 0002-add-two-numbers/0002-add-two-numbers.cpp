@@ -11,35 +11,36 @@
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-         
-        ListNode* newList = new ListNode();
-        ListNode* temp = newList;
-         int first = 0;
-         int second =0;
-        while(l1 != NULL || l2 != NULL){
-        if(l1){
-        first = first*10 + l1->val;
-        l1 = l1->next;
-        }
-        if(l2){
-        second = second*10 + l2->val;
-        l2 = l2->next;
-        }
-        }
-        int result = first+second;
-        int res =0;
-        while(result > 0){
-            int digit = result%10;
-            res = res*10 + digit;
-            result = result/10;
-        }
-        while(res > 0){
-            int digit = res%10;
-            temp->next = new ListNode(digit,temp->next);
-            res = res/10;
-        }
-        if(newList->next == NULL) return newList;
-        newList = newList->next;
-        return newList;
+          int carry = 0;
+          vector<int> ans;
+          while(l1 != nullptr || l2 != nullptr){
+            int add=0;
+            if(l1 != nullptr)
+              add += l1->val;
+            if(l2 != nullptr) add += l2->val;
+            add+=carry;
+            carry = 0;
+            if(add > 9){ ans.push_back(add%10);  carry = add/10;}
+            else ans.push_back(add); 
+            if(l1 != nullptr)
+            l1 = l1->next;
+            if(l2 != nullptr)
+            l2 = l2->next;
+          }
+          if(carry > 0)
+          ans.push_back(carry);
+          ListNode* newList = nullptr;
+          ListNode* temp = newList;
+          for(int i : ans){
+            ListNode* newNode = new ListNode(i);
+             if(temp == nullptr){
+                newList = newNode;
+                temp = newList;
+             }else{
+                temp->next = newNode;
+                temp = newNode;
+             }
+          }
+          return newList;
     }
 };
